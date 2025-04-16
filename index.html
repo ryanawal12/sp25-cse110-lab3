@@ -10,7 +10,7 @@
 <body>
   <header>
     <h1>Cricket Team Strategy Meeting</h1>
-    <h2>Meeting Topic: Pre-Match Planning and Strategy</h2>
+    <h2><i>Topic:</i> <em>Pre-Match Planning and Strategy</em></h2>
     <h3>Date: April 15, 2025</h3>
   </header>
 
@@ -21,8 +21,8 @@
       <li><a href="#unfinished">Unfinished Business</a></li>
       <li><a href="#new">New Business</a></li>
       <li><a href="#concerns">Concerns</a></li>
-      <li><a href="#diagram">Diagrams</a></li>
-      <li><a href="#recordings">Recordings</a></li>
+      <li><a href="#diagrams">Diagrams</a></li>
+      <li><a href="#recordings">Media</a></li>
       <li><a href="#feedback">Feedback</a></li>
     </ul>
   </nav>
@@ -31,119 +31,130 @@
     <section id="attendance">
       <h2>Attendance</h2>
       <ul>
-        <li>Captain: Rahul</li>
-        <li>Vice-Captain: Arjun</li>
-        <li>Coach: Mr. Desai</li>
-        <li>All Rounder: Vikram</li>
-        <li>Wicket Keeper: Aman</li>
-        <li>Fast Bowler: Neel</li>
+        <li>Captain: Rohit Sharma</li>
+        <li>Vice-Captain: Ryan Awal</li>
+        <li>Coach: Sachin Tendulkar</li>
+        <li>All Rounder: Kieron Pollard</li>
+        <li>Wicket Keeper: Ryan Rickleton</li>
+        <li>Fast Bowler: Jasprit Bumrah</li>
+        <li>Water Boy: Hardik Pandya</li>
       </ul>
     </section>
+
+    <hr>
 
     <section id="agenda">
       <h2>Agenda</h2>
       <ol>
-        <li>Review of previous match performance</li>
-        <li>Pitch condition analysis</li>
-        <li>Batting and bowling order strategy</li>
-        <li>Fielding practice schedule</li>
+        <li>Review last match performance</li>
+        <li>Analyze pitch conditions</li>
+        <li>Strategize batting/bowling order</li>
+        <li>Plan fielding drills</li>
       </ol>
     </section>
 
     <section id="unfinished">
       <h2>Unfinished Business</h2>
-      <p>Finalizing roles for backup players and substitutes.</p>
+      <p>Finalize <b>substitute player</b> roles for match day.</p>
     </section>
 
     <section id="new">
       <h2>New Business</h2>
       <ul>
-        <li>Possible lineup shuffle based on player form</li>
+        <li>Lineup changes based on player fitness</li>
         <li>Rain contingency planning</li>
       </ul>
     </section>
 
     <section id="concerns">
-      <h2>Questions and Concerns</h2>
+      <h2>Comments & Concerns</h2>
       <ul>
-        <li>Should we include more net practice days before the match?</li>
-        <li>Concerns over Neel's minor injury</li>
+        <li>Should we add another practice day?</li>
+        <li>Bumrah's minor hamstring strain</li>
       </ul>
     </section>
 
-    <section id="diagram">
-      <h2>Diagrams and Notes</h2>
-      <p>Whiteboard sketch of fielding positions and bowler rotation strategy:</p>
-      <img src="cricket-field-positions.jpg" alt="Diagram of cricket fielding setup and bowler rotation">
+    <section id="diagrams">
+      <h2>Diagrams</h2>
+      <p>Fielding layout for Bumrah's opening over</p>
+      <img src="Bumrah_Field_Placement.jpg" alt="Diagram of cricket strategy layout">
     </section>
 
     <section id="recordings">
-      <h2>Audio and Video Recording</h2>
+      <h2>Media Recordings</h2>
       <audio controls>
-        <source src="cricket-audio.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+        <source src="IPL_Tune.mp3" type="audio/mpeg">
+        browser does not support audio
       </audio>
       <br>
       <video width="320" height="240" controls>
-        <source src="cricket-meeting.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="Rohit_Pull_Shots.mp4" type="video/mp4">
+        browser does not support video
       </video>
     </section>
 
     <section id="feedback">
-      <h2>Optional Feedback Form</h2>
+      <h2>Feedback Form</h2>
       <form>
         <fieldset>
           <legend>Meeting Feedback</legend>
 
-          <label for="name">Name:</label>
+          <label for="name">Your Name:</label>
           <input type="text" id="name" name="name"><br><br>
 
-          <p>Rate this meeting (1-5):</p>
-          <input type="radio" id="rate1" name="rating" value="1">
-          <label for="rate1">1</label>
-          <input type="radio" id="rate2" name="rating" value="2">
-          <label for="rate2">2</label>
-          <input type="radio" id="rate3" name="rating" value="3">
-          <label for="rate3">3</label>
-          <input type="radio" id="rate4" name="rating" value="4">
-          <label for="rate4">4</label>
-          <input type="radio" id="rate5" name="rating" value="5">
-          <label for="rate5">5</label>
+          <label>Rate this meeting:</label><br>
+          <input type="radio" id="rate1" name="rating" value="1"><label for="rate1">1</label>
+          <input type="radio" id="rate2" name="rating" value="2"><label for="rate2">2</label>
+          <input type="radio" id="rate3" name="rating" value="3"><label for="rate3">3</label>
+          <input type="radio" id="rate4" name="rating" value="4"><label for="rate4">4</label>
+          <input type="radio" id="rate5" name="rating" value="5"><label for="rate5">5</label>
           <br><br>
 
-          <label for="date">Date of submission:</label>
+          <label for="date">Submission Date:</label>
           <input type="date" id="date" name="date"><br><br>
 
-          <label for="topics">Topics you liked:</label>
+          <label for="checkbox">Submit anonymously?</label>
+          <input type="checkbox" id="checkbox" name="anonymous"><br><br>
+
+          <label for="topics">Favorite Topic:</label>
           <select id="topics" name="topics">
-            <option value="review">Match review</option>
-            <option value="strategy">Strategy discussion</option>
-            <option value="roles">Player roles</option>
+            <option value="strategy">Strategy</option>
+            <option value="performance">Performance Review</option>
+            <option value="practice">Drills</option>
           </select><br><br>
 
           <label for="suggestions">Suggestions:</label><br>
           <textarea id="suggestions" name="suggestions" rows="4" cols="40"></textarea><br><br>
 
-          <label for="improve">Ways to improve future meetings:</label>
-          <input list="ideas" id="improve" name="improve">
-          <datalist id="ideas">
-            <option value="More match footage review">
-            <option value="Earlier scheduling">
-            <option value="Use interactive drills">
+          <label for="improve">Improvement Ideas:</label>
+          <input list="improve-list" id="improve" name="improve">
+          <datalist id="improve-list">
+            <option value="More video analysis">
+            <option value="Earlier practice slots">
+            <option value="Team bonding sessions">
           </datalist><br><br>
-
-          <label><input type="checkbox" name="anonymous"> Submit anonymously</label><br><br>
 
           <button type="submit">Submit</button>
         </fieldset>
       </form>
     </section>
+
+    <section id="extras">
+      <h2>Additional Elements</h2>
+
+      <div>
+        <p>This is a <span>highlighted note</span> using a div and span!</p>
+      </div>
+
+      <details>
+        <summary>Click here to view strategy summary</summary>
+        <p><strong>Summary:</strong> Team will bat first if pitch is dry. Otherwise, bowl first.</p>
+      </details>
+    </section>
   </main>
 
   <footer>
-    <p><strong>Prepared by:</strong> Your Name</p>
-    <p><em>Generated on April 15, 2025</em></p>
+    <p><strong>Prepared by:</strong> Ryan Awal</p>
   </footer>
 </body>
 </html>
