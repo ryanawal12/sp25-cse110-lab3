@@ -1,0 +1,26 @@
+/* ==========================================================================
+   styles.css
+   Core stylesheet for Meeting Minutes
+   ========================================================================== */
+
+/* 1) Define CSS variable with fallback                              */
+:root {
+    --primary-color: #0075ca; /* fallback will be used if var() fails */
+  }
+  
+  /* 2) Base element styles: apply font-family using your Google Font */
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color, #0054a6);
+  }
+  
+  /* 3) Example comment for a section                                  */
+  /* Header styling: align center, add some padding                      */
+  header {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: white;
+  }
+  
