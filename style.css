@@ -1,9 +1,3 @@
-/* ==========================================================================
-   style.css
-   Core stylesheet for Meeting Minutes
-   ========================================================================== */
-
-
 /* 1) Define CSS variable with fallback                              */
 :root {
     --primary-color: #0075ca; /* fallback will be used if var() fails */
@@ -95,3 +89,31 @@ section#attendance {
     align-items: start;
   }
 
+/* ==========================================================================
+   Issue 10: Responsive media query at phone/tablet breakpoint
+   ========================================================================== */
+   @media (max-width: 600px) {
+    /* Collapse the nav grid to one column */
+    nav ul {
+      grid-template-columns: 1fr;
+    }
+  
+    /* Make Agenda section full-width block */
+    section#agenda {
+      display: block;
+      width: 100%;
+    }
+  
+    /* Stack Attendance flex items vertically with tighter gaps */
+    section#attendance {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    /* Tweak overall section spacing for small screens */
+    main section {
+      margin: 0.5rem;
+      padding: 0.5rem;
+    }
+  }
+  
