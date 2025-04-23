@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Issue 9: Flexbox & Grid layouts
+   Add flex-direction + gap and instantiate a Grid container
+   ========================================================================== */
+
+/* 1) Add the third flex property (flex-direction) and a gap */
+section#attendance {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  /* 2) Convert the nav list into a Grid container */
+  nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 1rem;
+    align-items: start;
+  }
