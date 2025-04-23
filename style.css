@@ -1,119 +1,209 @@
-/* 1) Define CSS variable with fallback                              */
+/* ==========================================================================
+   style.css
+   ========================================================================== */
+
 :root {
-    --primary-color: #0075ca; /* fallback will be used if var() fails */
-  }
-  
+  --primary-color: #0075ca;           /* fallback if var() unsupported */
+  --secondary-color: hsl(210, 15%, 30%);
+  --accent-color: rgba(255, 165, 0, 0.8);
+}
 
-  /* 2) Base element styles: apply font-family using your Google Font */
-  body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--primary-color, #0054a6);
-  }
-  
+body {
+  font-family: 'Roboto', sans-serif;  /* Google Font import in <head> */
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-color, #0054a6); /* Fallback hex */
+  color: #333;                         /* Color name usage */
+}
 
-  /* 3) Header styling */
-  header {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: #1e90ff;               /* hex format */
+/* Universal selector example */
+* {
+  box-sizing: border-box;             /* Element selector + universal */
+}
+
+header {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #1e90ff;          /* hex */
+}
+
+nav a {
+  color: rgb(255, 255, 255);          /* rgb */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+footer {
+  background-color: hsl(210, 15%, 20%); /* hsl */
+  color: var(--secondary-color, #fff);  /* CSS var + fallback */
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Relative units: em, rem, vh */
+section#agenda h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5em;
+}
+
+section#agenda img {
+  height: 30vh;                        /* viewport-relative */
+}
+
+/* Absolute units: px, pt, in */
+aside {
+  border: 1px solid var(--accent-color); /* px */
+  padding: 12pt;                        /* pt */
+  margin: 0.1in;                        /* in */
+}
+
+/* Longhand */
+nav ul {
+  margin-top: 2rem;
+  padding-left: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ccc;
+}
+
+/* Shorthand */
+main section {
+  margin: 1rem 2rem;
+  padding: 0.5rem;
+  border: 1px dashed var(--accent-color);
+}
+
+.card {
+  border-style: solid;
+  border-color: var(--accent-color);
+  border-width: 2px;
+  border-radius: 0.5rem;
+}
+
+h1, h2 {                                   /* Selector list */
+  color: var(--primary-color);
+  text-align: center;
+}
+
+p.intro {                                 /* Class selector */
+  text-decoration: underline;
+}
+
+#footer-note {                            /* ID selector */
+  font-style: italic;
+  text-align: right;
+}
+
+.hidden { display: none; }                /* Display: none */
+
+section#agenda {
+  display: inline-block;                  /* Display: inline-block */
+  width: 45%;                             /* Width */
+  max-width: 600px;                       /* Max-width */
+  min-width: 300px;                       /* Min-width */
+}
+
+section#attendance {
+  display: flex;                          /* Flex layout */
+  justify-content: space-between;        /* Flex property */
+  align-items: flex-start;               /* Flex property */
+}
+
+/* Child combinator example */
+main > section {
+  background-color: var(--secondary-color);
+}
+
+/* Adjacent sibling combinator */
+h1 + h2 {
+  margin-top: 0;
+}
+
+/* General sibling combinator */
+h2 ~ section {
+  padding-top: 0;
+}
+
+/* Descendant combinator */
+nav ul li a {
+  display: inline;                       /* Display: inline */
+}
+
+/* Combining two selectors */
+section.highlighted {
+  background-color: #fafafa;
+  border-left: 4px solid var(--primary-color);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 100;
+}
+
+button.login {
+  position: relative;
+  top: 0.5rem;
+}
+
+.tooltip {                                /* Attribute selector */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+button:active {
+  box-shadow: inset 0 0 3px #000;
+}
+
+/* Flex container (Attendance) already set up above */
+/* Add flex-direction & gap */
+section#attendance {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+/* Grid container for nav links */
+nav ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    grid-template-columns: 1fr !important;
   }
-  
-  /* 4) Navigation links styling */
-  nav a {
-    color: rgb(255, 255, 255);               /* rgb format */
-    text-decoration: none;
+  section#agenda {
+    display: block !important;
+    width: 100% !important;
+  }
+  section#attendance {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  main section {
+    margin: 0.5rem !important;
+    padding: 0.5rem !important;
+  }
+}
+
+/* :has() — style any section *with* an image inside */
+main section:has(img) {
+  border: 2px solid var(--primary-color);
+}
+
+/* CSS Nesting — wrap a nested header within an article */
+article {
+  padding: 1rem;
+  @nest & > header {
+    background-color: var(--secondary-color);
     padding: 0.5rem;
   }
-  
-  /* 5) Footer styling */
-  footer {
-    background-color: hsl(210, 15%, 20%);    /* hsl format */
-    color: hsl(0, 0%, 90%);                  /* hsl format */
-    text-align: center;
-    padding: 1rem;
-  }
-
-/* ------------------------------------------------------------
-   Issue 8: Box-model longhand & shorthand, plus display/sizing
-   ------------------------------------------------------------ */
-
-/* 1) Longhand box-model on the nav list container */
-nav ul {
-    margin-top: 2rem;        /* longhand */
-    padding-left: 1rem;      /* longhand */
-    border-width: 2px;       /* longhand */
-    border-style: solid;     /* needed when setting border-width */
-    border-color: #ccc;      /* neutral gray border */
-  }
-  
-  /* 2) Shorthand box-model on each main section */
-  main section {
-    margin: 1rem 2rem;       /* shorthand for top/bottom 1rem, left/right 2rem */
-    padding: 0.5rem;         /* shorthand all around */
-  }
-  
-  /* 3a) Display: inline-block with sizing */
-  /*    Applies to the Agenda section as an example */
-  section#agenda {
-    display: inline-block;   /* inline-block display */
-    width: 45%;              /* explicit width */
-  }
-  
-  /* 3b) Display: flex with sizing */
-  /*    Applies to the Attendance section as an example */
-  section#attendance {
-    display: flex;           /* flex layout */
-    justify-content: space-between; /* flex property */
-    align-items: flex-start;        /* flex property */
-    width: 100%;             /* explicit width */
 }
-  
-/* ==========================================================================
-   Issue 9: Flexbox & Grid layouts
-   Add flex-direction + gap and instantiate a Grid container
-   ========================================================================== */
-
-/* 1) Add the third flex property (flex-direction) and a gap */
-section#attendance {
-    flex-direction: row;
-    gap: 1rem;
-  }
-  
-  /* 2) Convert the nav list into a Grid container */
-  nav ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-gap: 1rem;
-    align-items: start;
-  }
-
-/* ==========================================================================
-   Issue 10: Responsive media query at phone/tablet breakpoint
-   ========================================================================== */
-   @media (max-width: 600px) {
-    /* Collapse the nav grid to one column */
-    nav ul {
-      grid-template-columns: 1fr;
-    }
-  
-    /* Make Agenda section full-width block */
-    section#agenda {
-      display: block;
-      width: 100%;
-    }
-  
-    /* Stack Attendance flex items vertically with tighter gaps */
-    section#attendance {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  
-    /* Tweak overall section spacing for small screens */
-    main section {
-      margin: 0.5rem;
-      padding: 0.5rem;
-    }
-  }
-  
