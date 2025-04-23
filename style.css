@@ -1,4 +1,82 @@
 /* ==========================================================================
+   style.css
+   Core stylesheet for Meeting Minutes
+   ========================================================================== */
+
+
+/* 1) Define CSS variable with fallback                              */
+:root {
+    --primary-color: #0075ca; /* fallback will be used if var() fails */
+  }
+  
+
+  /* 2) Base element styles: apply font-family using your Google Font */
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color, #0054a6);
+  }
+  
+
+  /* 3) Header styling */
+  header {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #1e90ff;               /* hex format */
+  }
+  
+  /* 4) Navigation links styling */
+  nav a {
+    color: rgb(255, 255, 255);               /* rgb format */
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+  
+  /* 5) Footer styling */
+  footer {
+    background-color: hsl(210, 15%, 20%);    /* hsl format */
+    color: hsl(0, 0%, 90%);                  /* hsl format */
+    text-align: center;
+    padding: 1rem;
+  }
+
+/* ------------------------------------------------------------
+   Issue 8: Box-model longhand & shorthand, plus display/sizing
+   ------------------------------------------------------------ */
+
+/* 1) Longhand box-model on the nav list container */
+nav ul {
+    margin-top: 2rem;        /* longhand */
+    padding-left: 1rem;      /* longhand */
+    border-width: 2px;       /* longhand */
+    border-style: solid;     /* needed when setting border-width */
+    border-color: #ccc;      /* neutral gray border */
+  }
+  
+  /* 2) Shorthand box-model on each main section */
+  main section {
+    margin: 1rem 2rem;       /* shorthand for top/bottom 1rem, left/right 2rem */
+    padding: 0.5rem;         /* shorthand all around */
+  }
+  
+  /* 3a) Display: inline-block with sizing */
+  /*    Applies to the Agenda section as an example */
+  section#agenda {
+    display: inline-block;   /* inline-block display */
+    width: 45%;              /* explicit width */
+  }
+  
+  /* 3b) Display: flex with sizing */
+  /*    Applies to the Attendance section as an example */
+  section#attendance {
+    display: flex;           /* flex layout */
+    justify-content: space-between; /* flex property */
+    align-items: flex-start;        /* flex property */
+    width: 100%;             /* explicit width */
+}
+  
+/* ==========================================================================
    Issue 9: Flexbox & Grid layouts
    Add flex-direction + gap and instantiate a Grid container
    ========================================================================== */
@@ -16,3 +94,4 @@ section#attendance {
     grid-gap: 1rem;
     align-items: start;
   }
+
