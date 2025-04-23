@@ -4,7 +4,7 @@
 
 :root {
   --primary-color: #0075ca;           /* fallback if var() unsupported */
-  --secondary-color: hsl(210, 15%, 30%);
+  --secondary-color: hsl(59, 51%, 62%);
   --accent-color: rgba(255, 165, 0, 0.8);
 }
 
